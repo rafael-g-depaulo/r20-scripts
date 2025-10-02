@@ -1,4 +1,4 @@
-import { listFiles, readFile } from '../file'
+import { listFiles, readFile } from '../utils/file'
 import { replaceMacroAsync } from '../macros/replaceMacro'
 import { CompileRulesDeps, processContent } from './index'
 

@@ -1,4 +1,4 @@
-import { matchAllGroups } from './regexUtils'
+import { matchAllGroups } from './regex'
 
 export const order = (level: number) =>
   level === 1 ? 'st' : level === 2 ? 'nd' : level === 3 ? 'rd' : 'th'

@@ -1,4 +1,4 @@
-import { groupByNumber } from '../arrayUtils'
+import { groupByNumber } from '../utils/array'
 import { replaceMacro } from '../macros/replaceMacro'
 
 const headingsPerTocPage = 53

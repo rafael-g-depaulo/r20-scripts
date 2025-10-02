@@ -1,5 +1,5 @@
 import { Macro } from '../macros/types'
-import { parseMarkdownTable } from '../stringOutputUtils'
+import { parseMarkdownTable } from '../utils/stringOutput'
 
 export type Themes = {
   [s: string]: {

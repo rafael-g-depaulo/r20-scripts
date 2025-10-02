@@ -1,4 +1,4 @@
-import { matchAllGroups, matchGroups } from '../regexUtils'
+import { matchAllGroups, matchGroups } from '../utils/regex'
 import { Macro, MacroItem } from './types'
 
 const createMacro = <ItemKeys extends string, Name extends string>({
@@ -30,18 +30,18 @@ const parseItem = (item: string) =>
   !macroListItemValueRegex.test(item)
     ? item
     : matchAllGroups(item, macroListItemValueRegex)?.map(({ listItem }) =>
-        listItem.trim()
-      )
+      listItem.trim()
+    )
 
 const parseItems = (body: string | undefined) =>
   !body
     ? {}
     : Object.fromEntries(
-        matchAllGroups(body, macroItemRegex).map(({ itemKey, itemValue }) => [
-          itemKey.toLocaleUpperCase(),
-          parseItem(itemValue),
-        ])
-      )
+      matchAllGroups(body, macroItemRegex).map(({ itemKey, itemValue }) => [
+        itemKey.toLocaleUpperCase(),
+        parseItem(itemValue),
+      ])
+    )
 
 // TODO: fix bug where lists of 1 item are parsed as simpleValues instead of unitary lists
 export const parseMacros = (content: string): Macro[] => {

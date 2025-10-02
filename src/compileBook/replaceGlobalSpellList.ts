@@ -1,10 +1,10 @@
-import { asyncPipe } from '../arrayUtils'
+import { asyncPipe } from '../utils/array'
 import {
   makeSpellDescriptionsListString,
   makeSpellListString,
 } from '../businessLogic/spellList'
 import { ignoreSpellErrors } from '../error'
-import { searchPathRecursively } from '../file'
+import { searchPathRecursively } from '../utils/file'
 import { searchMacro } from '../macros/parseMacro'
 import { replaceMacro } from '../macros/replaceMacro'
 import { filterWipSpells, readSpells } from '../spell'

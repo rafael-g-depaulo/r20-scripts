@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { makeSpellListString } from './businessLogic/spellList';
 import { getClassname, makeClassSpellList } from './classSpellList';
-import { listFiles, readFile, writeToFile } from './file';
+import { listFiles, readFile, writeToFile } from './utils/file';
 import { writeTagSpellLists } from './tags';
 import { compileSingleClassBook, postProccessSingleClassBook } from './compileBook/compileSingleClassBook';
 import { CompileRulesDeps, compileRules, processContent } from './compileBook';

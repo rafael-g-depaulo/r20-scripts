@@ -1,7 +1,7 @@
-import { groupBy } from './arrayUtils'
+import { groupBy } from './utils/array'
 import { Spell } from './businessLogic/spell'
 import { spellListItemString } from './businessLogic/spellList'
-import { spellLevelStr } from './stringOutputUtils'
+import { spellLevelStr } from './utils/stringOutput'
 
 export const groupByLevel = (spells: Spell[]) =>
   Object.entries(groupBy((spell: Spell) => spell.level)(spells)).map<

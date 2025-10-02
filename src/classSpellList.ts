@@ -3,7 +3,7 @@ import {
   makeSpellListString,
 } from './businessLogic/spellList'
 import { CompileRulesDeps, processContent } from './compileBook/index'
-import { matchGroups } from './regexUtils'
+import { matchGroups } from './utils/regex'
 
 import { createSpellList, TagRules } from './tagRules'
 

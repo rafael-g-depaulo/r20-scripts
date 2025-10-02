@@ -1,6 +1,6 @@
-import { popTopFolder, readFile, searchPathRecursively } from '../file'
+import { popTopFolder, readFile, searchPathRecursively } from '../utils/file'
 import { replaceMacroAsync } from '../macros/replaceMacro'
-import { matchGroups, replaceAsync } from '../regexUtils'
+import { matchGroups, replaceAsync } from '../utils/regex'
 import { CompileRulesDeps, processContent } from './index'
 
 const markdownLinkRegex = /!\[\[(?<link>[^\]]+)\]\]/g

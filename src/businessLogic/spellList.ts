@@ -1,8 +1,8 @@
-import { joinInGroupsOf } from '../arrayUtils'
+import { joinInGroupsOf } from '../utils/array'
 import { CompileRulesDeps, processContent } from '../compileBook/index'
 import { breakPage } from '../compileBook/replacePageBreakMacro'
 import { groupByLevel } from '../spellList'
-import { spellLevelStr } from '../stringOutputUtils'
+import { spellLevelStr } from '../utils/stringOutput'
 import { createSpellList, TagRules } from '../tagRules'
 import { Spell, spellString } from './spell'
 

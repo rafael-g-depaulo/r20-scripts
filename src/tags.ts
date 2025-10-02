@@ -1,6 +1,6 @@
 import { Spell } from './businessLogic/spell'
-import { writeToFile } from './file'
-import { matchGroups } from './regexUtils'
+import { writeToFile } from './utils/file'
+import { matchGroups } from './utils/regex'
 import { createTagSpellMap, makeTagSpellList } from './spellList'
 
 export const noTagRegex = /^no\-(?<tag>\w+)/i

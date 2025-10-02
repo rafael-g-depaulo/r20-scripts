@@ -5,10 +5,10 @@ import {
   Spell,
 } from './businessLogic/spell'
 import { isSpellError, SpellError, spellError } from './error'
-import { listFiles, readFile } from './file'
+import { listFiles, readFile } from './utils/file'
 import { searchMacro } from './macros/parseMacro'
 import { Macro } from './macros/types'
-import { removeExtension } from './stringOutputUtils'
+import { removeExtension } from './utils/stringOutput'
 import { ValidatedSpells } from './validateSpell'
 
 export const readSpells = async (
@@ -38,13 +38,13 @@ export const readSpells = async (
     (acc, cur) =>
       isSpellError(cur)
         ? {
-            errors: [...acc.errors, cur],
-            macros: [...acc.macros],
-          }
+          errors: [...acc.errors, cur],
+          macros: [...acc.macros],
+        }
         : {
-            errors: [...acc.errors],
-            macros: [...acc.macros, cur],
-          },
+          errors: [...acc.errors],
+          macros: [...acc.macros, cur],
+        },
     { macros: [], errors: [] }
   )
 

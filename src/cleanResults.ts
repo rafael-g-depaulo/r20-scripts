@@ -1,4 +1,4 @@
-import { cleanFolder } from './file';
+import { cleanFolder } from './utils/file';
 import { parseContentDeps } from './parseContent';
 
 // clean results

@@ -1,4 +1,4 @@
-import { isPromise } from './typeUtils'
+import { isPromise } from '../utils/type'
 
 export const groupByNumber = <T extends unknown>(
   items: T[],

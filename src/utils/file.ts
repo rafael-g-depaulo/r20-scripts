@@ -10,7 +10,7 @@ import {
   lstat,
 } from 'fs/promises'
 import { join } from 'path'
-import { matchGroups } from './regexUtils'
+import { matchGroups } from './regex'
 
 // util file funcions
 export const listFiles = (...dirs: string[]) =>

@@ -1,9 +1,9 @@
-import { groupBy } from './arrayUtils'
-import { deleteFile, fileOrFolderExists, writeToFile } from './file'
-import { matchGroups } from './regexUtils'
+import { groupBy } from './utils/array'
+import { deleteFile, fileOrFolderExists, writeToFile } from './utils/file'
+import { matchGroups } from './utils/regex'
 import { Spell } from './businessLogic/spell'
 import { noTagRegex, TagGroups } from './tags'
-import { isNotNull } from './typeUtils'
+import { isNotNull } from './utils/type'
 import { ValidatedSpells } from './validateSpell'
 import { join } from 'path'
 
@@ -28,10 +28,10 @@ export const spellError = (
 const hasSpellOrWipTag: ErrorCheck = spell =>
   !spell.tags.includes('wip') && !spell.tags.includes('spell')
     ? spellError(
-        'Spell Tag',
-        `Spell should have either "wip" or "spell" tag`,
-        spell.name
-      )
+      'Spell Tag',
+      `Spell should have either "wip" or "spell" tag`,
+      spell.name
+    )
     : null
 
 const spellBreaksHierarchyForGroup = (
@@ -54,31 +54,31 @@ const spellBreaksHierarchyForGroup = (
 }
 const obeysTagGroupHierarchy =
   (hierarchy: TagGroups): ErrorCheck =>
-  spell => {
-    return hierarchy
-      .filter(({ group, tags }) =>
-        spellBreaksHierarchyForGroup(spell, { group, tags })
-      )
-      .flatMap(({ group, tags }) =>
-        tags
-          .filter(tag => spell.tags.includes(tag))
-          .map(tag => ({ group, tag }))
-      )
-      .map(({ group, tag }) =>
-        spellError(
-          'Tag Group Hierarchy',
-          `Spell has tag "${tag}" but is missing it's group tag "${group}" (or you can add "#no-${group}")`,
-          spell.name
+    spell => {
+      return hierarchy
+        .filter(({ group, tags }) =>
+          spellBreaksHierarchyForGroup(spell, { group, tags })
         )
-      )
-  }
+        .flatMap(({ group, tags }) =>
+          tags
+            .filter(tag => spell.tags.includes(tag))
+            .map(tag => ({ group, tag }))
+        )
+        .map(({ group, tag }) =>
+          spellError(
+            'Tag Group Hierarchy',
+            `Spell has tag "${tag}" but is missing it's group tag "${group}" (or you can add "#no-${group}")`,
+            spell.name
+          )
+        )
+    }
 
 // consolidate error parsers
 const isError = (e: SpellError | null): e is SpellError => !!e
 const createErrorCheckerThing =
   (...checkers: ErrorCheck[]): ErrorParser =>
-  spell =>
-    checkers.flatMap(check => check(spell)).filter(isError)
+    spell =>
+      checkers.flatMap(check => check(spell)).filter(isError)
 
 export interface ErrorCheckerDeps {
   tagGroups: TagGroups
@@ -105,11 +105,11 @@ export const writeOutErrors = (errors: SpellError[]): string =>
 
 export const dealWithErrors =
   (folder: string, filename: string) =>
-  async ({ spells, errors }: ValidatedSpells) => {
-    if (errors.length > 0) writeToFile(folder, filename, writeOutErrors(errors))
-    else if (await fileOrFolderExists(join(folder, filename)))
-      deleteFile(folder, filename)
+    async ({ spells, errors }: ValidatedSpells) => {
+      if (errors.length > 0) writeToFile(folder, filename, writeOutErrors(errors))
+      else if (await fileOrFolderExists(join(folder, filename)))
+        deleteFile(folder, filename)
 
-    return spells
-  }
+      return spells
+    }
 export const ignoreSpellErrors = ({ spells }: ValidatedSpells) => spells

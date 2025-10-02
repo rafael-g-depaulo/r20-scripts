@@ -1,4 +1,4 @@
-import { pad } from '../arrayUtils'
+import { pad } from '../utils/array'
 import { getNumber, getString, Macro } from '../macros/types'
 import { joinFeatures, parseFeatures, parseFeaturesList, parseMultiFeatures } from './features'
 

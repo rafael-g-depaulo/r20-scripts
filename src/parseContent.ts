@@ -1,7 +1,7 @@
 import { Archetype, parseArchetype } from './businessLogic/archetype';
 import { parseThemes, Themes } from './businessLogic/classThemes';
 import { dealWithErrors } from './error';
-import { listFiles, readFile } from './file';
+import { listFiles, readFile } from './utils/file';
 import { searchMacro, searchMacros } from './macros/parseMacro';
 import { readSpells } from './spell';
 import { parseTagRules } from './tagRules';

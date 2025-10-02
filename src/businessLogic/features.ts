@@ -1,7 +1,7 @@
-import { pad } from '../arrayUtils'
+import { pad } from '../utils/array'
 import { getString } from '../macros/types'
-import { parseMarkdownTable } from '../stringOutputUtils'
 import { Feature } from './class'
+import { parseMarkdownTable } from '../utils/stringOutput'
 
 export const joinFeatures = (...features: string[][][]) =>
   features.reduce((acc, cur) =>

@@ -1,12 +1,12 @@
 import { CompileRulesDeps } from '.'
-import { range } from '../arrayUtils'
+import { range } from '../utils/array'
 import { Archetype } from '../businessLogic/archetype'
 import { Attb, getAttbName } from '../businessLogic/attributes'
 import { Class, ClassNote, Feat, genericNoteRegex, parseClass } from '../businessLogic/class'
 import { Themes } from '../businessLogic/classThemes'
 import { proficiencyBonus } from '../businessLogic/proficiency'
 import { replaceMacro, replaceMacroAsync } from '../macros/replaceMacro'
-import { order } from '../stringOutputUtils'
+import { order } from '../utils/stringOutput'
 
 export const removeArchetypeDefinition = replaceMacro('define-archetype', '')
 

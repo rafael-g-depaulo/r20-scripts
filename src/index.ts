@@ -1,4 +1,4 @@
-import { main } from './cli/main'
+import { main } from './cli-utils/main'
 import { _parseContentDeps } from './filesConfig'
 
 // run everything

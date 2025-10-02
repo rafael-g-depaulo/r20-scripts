@@ -1,10 +1,10 @@
-import { writeToFile } from '../file';
 import { getPostProcessInfo, postProcess } from '../postProcessing';
 import { cleanResults } from "../cleanResults";
 import { parseContent, parseContentDeps } from "../parseContent";
 import { compileBook } from "../compileBookString";
 import { CompileRulesDeps } from '../compileBook';
 import { baseDir, ClassesFolder, ArchetypesFolder, CompiledFolder, rulebookFile } from '../filesConfig';
+import { writeToFile } from '../utils/file';
 
 // read, analyse and compile stuff
 export const main = async ({ fileLocations }: parseContentDeps) => {

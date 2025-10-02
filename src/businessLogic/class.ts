@@ -1,6 +1,6 @@
-import { pad, separateGroups } from '../arrayUtils'
+import { pad, separateGroups } from '../utils/array'
 import { getString, getStringArr, Macro } from '../macros/types'
-import { parseMarkdownTable } from '../stringOutputUtils'
+import { parseMarkdownTable } from '../utils/stringOutput'
 import {
   parseFeatures,
   parseFeaturesList,

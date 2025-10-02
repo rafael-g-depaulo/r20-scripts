@@ -1,6 +1,6 @@
 import { spellError, SpellError } from '../error'
 import { getString, Macro } from '../macros/types'
-import { parseMarkdownTable, spellLevelStr } from '../stringOutputUtils'
+import { parseMarkdownTable, spellLevelStr } from '../utils/stringOutput'
 import { getTags } from '../tags'
 
 export const spellDescriptionItems = [
